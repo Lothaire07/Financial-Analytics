@@ -4,10 +4,7 @@ import plotly.express as px
 import datetime
 import pandas as pd
 
-st.set_page_config(
-    page_title="Aluminium COMEX Analytics",
-    layout="wide"
-)
+st.set_page_config(page_title="Aluminium COMEX Analytics", layout="wide")
 
 st.title("Aluminium COMEX Analytics (AX)")
 
@@ -23,7 +20,7 @@ else:
         "ALI=F",
         start=start.isoformat(),
         end=(end + datetime.timedelta(days=1)).isoformat(),
-        progress=False
+        progress=False,
     )
 
     if df.empty:
@@ -38,16 +35,9 @@ else:
             x=df.index,
             y="Close",
             title=f"Aluminium COMEX future chart from {start} to {end}",
-            labels={
-                "index": "Date",
-                "Close": "Closing price (USD)"
-            },
+            labels={"index": "Date", "Close": "Closing price (USD)"},
         )
-        fig.update_layout(
-            xaxis_title="Date",
-            yaxis_title="Closing price (USD)"
-
-        )
+        fig.update_layout(xaxis_title="Date", yaxis_title="Closing price (USD)")
         fig.update_traces(line=dict(color="lightblue"))
 
         st.plotly_chart(fig, use_container_width=True)

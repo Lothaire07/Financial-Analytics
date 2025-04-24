@@ -7,5 +7,8 @@
   "packages": {},
   "scripts": {
     "start": "electron ."
+  },
+  "dependencies": {
+    "black": "^0.3.0"
   }
 }
