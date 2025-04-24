@@ -4,11 +4,11 @@ import plotly.express as px
 import datetime
 import pandas as pd
 from components.kpi import value_display
-from components.ui import render_navbar, render_sidebar_nav, hide_sidebar_nav
+from components.ui import render_navbar, render_sidebar_nav, hide_streamlit_elt
 
 st.set_page_config(page_title="Gold COMEX Analytics", layout="wide", initial_sidebar_state="collapsed")
 
-hide_sidebar_nav()
+hide_streamlit_elt()
 
 render_navbar()
 render_sidebar_nav()

@@ -5,10 +5,10 @@ import datetime
 import pandas as pd
 
 from components.kpi import value_display
-from components.ui import hide_sidebar_nav
+from components.ui import hide_streamlit_elt
 
 st.set_page_config(page_title="Aluminium COMEX Analytics", layout="wide",initial_sidebar_state="collapsed")
-hide_sidebar_nav()
+hide_streamlit_elt()
 
 st.title("Aluminium COMEX Analytics (AX)")
 

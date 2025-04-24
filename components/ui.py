@@ -5,6 +5,11 @@ def render_navbar():
     st.markdown("""
     <style>
     .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
         display: flex;
         justify-content: center;
         gap: 2rem;
@@ -70,9 +75,10 @@ def render_sidebar_nav():
     """, height=300)
 
 
-def hide_sidebar_nav():
+def hide_streamlit_elt():
     st.markdown("""
     <style>
+    /* Cacher la sidebar */
     section[data-testid="stSidebar"] {
         display: none !important;
     }
@@ -85,8 +91,30 @@ def hide_sidebar_nav():
         display: none !important;
     }
 
+    /* Étendre la page au maximum */
     div[data-testid="stAppViewContainer"] > div:first-child {
         width: 100%;
     }
+
+    /* Cacher complètement le bouton Deploy + l’espace qu’il occupe */
+    [data-testid="stAppDeployButton"] {
+        display: none !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Enlève tout espace ajouté par le header Streamlit */
+    header[data-testid="stHeader"] {
+        height: 0 !important;
+        visibility: hidden !important;
+    }
+
+    /* Supprimer le padding par défaut de la page */
+    .block-container {
+        padding-top: 0 !important;
+    }
     </style>
     """, unsafe_allow_html=True)
+
+### def hide_deploy(): ### To hide the deploy function when testing

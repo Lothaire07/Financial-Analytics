@@ -7,7 +7,7 @@ textColor="#fafafa"
 font="sans serif"
 
 [server]
-headless = false #ui de dev
+headless = true #ui de dev
 
 
 [ui]
