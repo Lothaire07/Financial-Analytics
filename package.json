@@ -1,0 +1,11 @@
+{
+  "name": "Financial-Analytics",
+  "version": "1.0.0",
+  "lockfileVersion": 3,
+  "requires": true,
+  "main": "main.js",
+  "packages": {},
+  "scripts": {
+    "start": "electron ."
+  }
+}

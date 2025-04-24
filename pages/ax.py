@@ -5,11 +5,11 @@ import datetime
 import pandas as pd
 
 st.set_page_config(
-    page_title="Gold COMEX Analytics",
+    page_title="Aluminium COMEX Analytics",
     layout="wide"
 )
 
-st.title("Gold COMEX Analytics (GC=F)")
+st.title("Aluminium COMEX Analytics (AX)")
 
 now = datetime.date.today()
 start_def = now - datetime.timedelta(days=365)
@@ -20,7 +20,7 @@ if start > end:
     st.error("The start date must be earlier than the end date.")
 else:
     df = yf.download(
-        "GC=F",
+        "ALI=F",
         start=start.isoformat(),
         end=(end + datetime.timedelta(days=1)).isoformat(),
         progress=False
@@ -37,7 +37,7 @@ else:
             df,
             x=df.index,
             y="Close",
-            title=f"Gold COMEX future chart from {start} to {end}",
+            title=f"Aluminium COMEX future chart from {start} to {end}",
             labels={
                 "index": "Date",
                 "Close": "Closing price (USD)"
@@ -48,6 +48,6 @@ else:
             yaxis_title="Closing price (USD)"
 
         )
-        fig.update_traces(line=dict(color="gold"))
+        fig.update_traces(line=dict(color="lightblue"))
 
         st.plotly_chart(fig, use_container_width=True)
