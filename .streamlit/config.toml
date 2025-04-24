@@ -5,3 +5,10 @@ backgroundColor="#0e1117"
 secondaryBackgroundColor="#262730"
 textColor="#fafafa"
 font="sans serif"
+
+[server]
+headless = false #ui de dev
+
+
+[ui]
+hideSidebarNav = true

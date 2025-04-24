@@ -4,9 +4,15 @@ import plotly.express as px
 import datetime
 import pandas as pd
 
-st.set_page_config(page_title="Copper COMEX Analytics", layout="wide")
+from components.kpi import value_display
+from components.ui import hide_sidebar_nav
+
+st.set_page_config(page_title="Copper COMEX Analytics", layout="wide",initial_sidebar_state="collapsed")
+hide_sidebar_nav()
 
 st.title("Copper COMEX Analytics (HG)")
+
+value_display("HG=F")
 
 now = datetime.date.today()
 start_def = now - datetime.timedelta(days=365)
@@ -41,3 +47,52 @@ else:
         fig.update_traces(line=dict(color="darkorange"))
 
         st.plotly_chart(fig, use_container_width=True)
+
+        col1, col2 = st.columns([2, 1])
+        with col1:
+            st.markdown(
+                """
+                <style>
+                    .copper-hover {
+                        display: inline-block;
+                        transition: color 0.3s, text-shadow 0.3s;
+                        font-weight: bold;
+                        color: inherit;
+                    }
+
+                    .copper-hover:hover {
+                        color: #b87333;
+                        text-shadow: 0 0 10px rgba(184, 115, 51, 0.8), 0 0 20px rgba(184, 115, 51, 0.6);
+                    }
+                </style>
+
+                <div>
+                  <p>
+                    <span class="copper-hover">Copper</span> is a critical industrial metal valued for both its physical properties and its economic significance:
+                    <ul>
+                      <li>Highly conductive, making it essential for electrical wiring and electronics</li>
+                      <li>Ductile and malleable, used in construction and manufacturing</li>
+                      <li>Resistant to corrosion, especially in plumbing and renewable energy systems</li>
+                    </ul>
+                    Copper plays a vital role in the global transition to clean energy and electrification.  
+                    Its price is influenced by:
+                    <ul>
+                      <li>Global industrial activity and construction demand</li>
+                      <li>Supply levels from top producers like Chile and Peru</li>
+                      <li>Trends in renewable energy infrastructure (e.g., EVs, solar)</li>
+                      <li>Macroeconomic indicators and inventories</li>
+                    </ul>
+                    Often called “Dr. Copper” for its ability to reflect economic health, copper remains a fundamental indicator of growth and industrial momentum worldwide.
+                  </p>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+
+        with col2:
+            st.image(
+                "images/calitore-xPVUA7Jrl58-unsplash.jpg",
+                caption="Copper Wires",
+                use_container_width=True,
+            )
+

@@ -4,19 +4,15 @@ import plotly.express as px
 import datetime
 import pandas as pd
 
-st.set_page_config(page_title="Aluminium COMEX Analytics", layout="wide")
+from components.kpi import value_display
+from components.ui import hide_sidebar_nav
+
+st.set_page_config(page_title="Aluminium COMEX Analytics", layout="wide",initial_sidebar_state="collapsed")
+hide_sidebar_nav()
 
 st.title("Aluminium COMEX Analytics (AX)")
 
-aluminium = yf.Ticker("ALI=F")
-data = aluminium.history(period="2d")
-current_price = data["Close"].iloc[-1]
-previous_price = data["Close"].iloc[-2]
-delta = current_price - previous_price
-percent_delta = (delta / previous_price) * 100
-st.metric(
-    label="Current data", value=f"${current_price:,.2f}", delta=f"{percent_delta:+.2f}%"
-)
+value_display("ALI=F")
 
 now = datetime.date.today()
 start_def = now - datetime.timedelta(days=365)

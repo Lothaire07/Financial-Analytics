@@ -3,20 +3,19 @@ import yfinance as yf
 import plotly.express as px
 import datetime
 import pandas as pd
+from components.kpi import value_display
+from components.ui import render_navbar, render_sidebar_nav, hide_sidebar_nav
 
-st.set_page_config(page_title="Gold COMEX Analytics", layout="wide")
+st.set_page_config(page_title="Gold COMEX Analytics", layout="wide", initial_sidebar_state="collapsed")
+
+hide_sidebar_nav()
+
+render_navbar()
+render_sidebar_nav()
 
 st.title("Gold COMEX Analytics (GC)")
 
-gold = yf.Ticker("GC=F")
-data = gold.history(period="2d")
-current_price = data["Close"].iloc[-1]
-previous_price = data["Close"].iloc[-2]
-delta = current_price - previous_price
-percent_delta = (delta / previous_price) * 100
-st.metric(
-    label="Current data", value=f"${current_price:,.2f}", delta=f"{percent_delta:+.2f}%"
-)
+value_display("GC=F")
 
 now = datetime.date.today()
 start_def = now - datetime.timedelta(days=365)
