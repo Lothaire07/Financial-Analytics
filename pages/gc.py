@@ -14,7 +14,9 @@ current_price = data["Close"].iloc[-1]
 previous_price = data["Close"].iloc[-2]
 delta = current_price - previous_price
 percent_delta = (delta / previous_price) * 100
-st.metric(label="Current data", value=f"${current_price:,.2f}", delta=f"{percent_delta:+.2f}%")
+st.metric(
+    label="Current data", value=f"${current_price:,.2f}", delta=f"{percent_delta:+.2f}%"
+)
 
 now = datetime.date.today()
 start_def = now - datetime.timedelta(days=365)
@@ -93,4 +95,8 @@ else:
             )
 
         with col2:
-            st.image("images/scottsdale-mint-2jjc94apOCY-unsplash.jpg", caption="Gold Ingot", use_container_width=True)
+            st.image(
+                "images/scottsdale-mint-2jjc94apOCY-unsplash.jpg",
+                caption="Gold Ingot",
+                use_container_width=True,
+            )
