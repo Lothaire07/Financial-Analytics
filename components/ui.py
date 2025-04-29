@@ -90,10 +90,10 @@ def render_navbar():
         <div class="dropdown">
         <a href="#">Metals ▾</a>
         <div class="dropdown-content">
-        <a href="/metals/gc" target="_self">Gold</a>
-        <a href="/metals/si" target="_self">Silver</a>
-        <a href="/metals/hg" target="_self">Copper</a>
-        <a href="/metals/ax" target="_self">Aluminum</a>
+        <a href="/gc" target="_self">Gold</a>
+        <a href="/si" target="_self">Silver</a>
+        <a href="/hg" target="_self">Copper</a>
+        <a href="/ax" target="_self">Aluminum</a>
         </div>
         </div>
         
@@ -102,7 +102,10 @@ def render_navbar():
         <div class="dropdown-content">
         <a href="/zc" target="_self">Corn</a>
         <a href="/zw" target="_self">Wheat</a>
-        <a href="/zk" target="_self">Soybeans</a>
+        <a href="/zs" target="_self">Soybeans</a>
+        <a href="/zl" target="_self">Soybean Oil</a>
+        <a href="/zm" target="_self">Soybean Meal</a>
+        <a href="/zo" target="_self">Oats</a>
         <!-- Ajoute plus de produits ici si nécessaire -->
         </div>
         </div>
