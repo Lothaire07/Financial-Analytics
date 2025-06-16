@@ -8,6 +8,9 @@ from components.kpi import value_display
 from components.ui import render_navbar, hide_streamlit_elt
 
 
+
+
+
 def render_commodity_page(
         page_title: str,
         ticker: str,

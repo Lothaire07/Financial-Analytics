@@ -1,2 +1,2 @@
-streamlit run home.py
+streamlit run app.py
 npm start
